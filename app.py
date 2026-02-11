@@ -38,11 +38,17 @@ if uploaded_file is not None:
         "XGBoost": "model/xgboost.pkl"
     }
 
-    # Preprocessing (same as in your notebook)
+    # Define categorical columns
     categorical_cols = ["sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal"]
 
     # One-hot encode categorical variables
     data_encoded = pd.get_dummies(data, columns=categorical_cols, drop_first=True)
+
+    # Load expected feature names from training
+    feature_names = joblib.load("model/features.pkl")
+
+    # Align uploaded data with training features
+    data_encoded = data_encoded.reindex(columns=feature_names, fill_value=0)
 
     # Scale numerical features
     scaler = StandardScaler()
