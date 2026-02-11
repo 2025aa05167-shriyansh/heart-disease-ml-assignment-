@@ -1,18 +1,21 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef, confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 st.title("Heart Disease Prediction - ML Assignment")
 
-uploaded_file = st.file_uploader("Upload test CSV file", type=["csv"])
+# File uploader
+uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
     st.write("Uploaded Data Preview:")
     st.write(data.head())
 
+    # Dropdown for model selection
     model_choice = st.selectbox(
         "Select Model",
         [
@@ -25,6 +28,7 @@ if uploaded_file is not None:
         ]
     )
 
+    # Map model names to .pkl files
     model_map = {
         "Logistic Regression": "model/logistic_regression.pkl",
         "Decision Tree": "model/decision_tree.pkl",
@@ -34,12 +38,25 @@ if uploaded_file is not None:
         "XGBoost": "model/xgboost.pkl"
     }
 
+    # Preprocessing (same as in your notebook)
+    categorical_cols = ["sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal"]
+
+    # One-hot encode categorical variables
+    data_encoded = pd.get_dummies(data, columns=categorical_cols, drop_first=True)
+
+    # Scale numerical features
+    scaler = StandardScaler()
+    data_scaled = scaler.fit_transform(data_encoded)
+
+    # Load model
     model_path = model_map[model_choice]
     model = joblib.load(model_path)
 
-    predictions = model.predict(data)
+    # Predictions
+    predictions = model.predict(data_scaled)
     st.write("Predictions:", predictions)
 
+    # If target column exists, show evaluation metrics
     if "target" in data.columns:
         y_true = data["target"]
         y_pred = predictions
