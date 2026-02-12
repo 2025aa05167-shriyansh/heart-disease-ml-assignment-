@@ -56,11 +56,13 @@ XGBoost
 | Random Forest       | 1.000    | 1.000 | 1.000     | 1.000  | 1.000 | 1.000 |
 | XGBoost             | 1.000    | 1.000 | 1.000     | 1.000  | 1.000 | 1.000 |
 
-Observations
-ML Model Name	Observation about model performance
-Logistic Regression	Strong baseline model with high accuracy and balanced precision/recall. Performs well but not perfect.
-Decision Tree	Achieved perfect scores, but may be overfitting to the dataset.
-KNN	Moderate performance, recall slightly lower than precision, indicating sensitivity to neighborhood size.
-Naive Bayes	Balanced precision and recall, but overall accuracy lower compared to ensemble methods.
-Random Forest	Perfect scores across all metrics, robust ensemble method, likely generalizes well.
-XGBoost	Perfect scores, powerful ensemble boosting method, strong predictive performance.
+#Observations
+
+| ML Model Name             | Observation about model performance                                                                 |
+|----------------------------|-----------------------------------------------------------------------------------------------------|
+| Logistic Regression        | Strong baseline model with high accuracy and balanced precision/recall. Performs well but not perfect. |
+| Decision Tree              | Achieved perfect scores, but may be overfitting to the dataset.                                     |
+| KNN                        | Moderate performance, recall slightly lower than precision, indicating sensitivity to neighborhood size. |
+| Naive Bayes                | Balanced precision and recall, but overall accuracy lower compared to ensemble methods.             |
+| Random Forest (Ensemble)   | Perfect scores across all metrics, robust ensemble method, likely generalizes well.                 |
+| XGBoost (Ensemble)         | Perfect scores, powerful ensemble boosting method, strong predictive performance.                   |
