@@ -43,15 +43,18 @@ Naive Bayes
 Random Forest
 XGBoost
    
-Models Used & Evaluation
-Comparison Table
-ML Model Name	Accuracy	AUC	Precision	Recall	F1	MCC
-Logistic Regression	0.868	0.944	0.848	0.905	0.876	0.738
-Decision Tree	1.000	1.000	1.000	1.000	1.000	1.000
-KNN	0.824	0.949	0.848	0.800	0.824	0.650
-Naive Bayes	0.824	0.883	0.829	0.829	0.829	0.649
-Random Forest	1.000	1.000	1.000	1.000	1.000	1.000
-XGBoost	1.000	1.000	1.000	1.000	1.000	1.000
+#Models Used & Evaluation
+
+#Comparison Table
+
+| ML Model Name       | Accuracy | AUC   | Precision | Recall | F1    | MCC   |
+|---------------------|----------|-------|-----------|--------|-------|-------|
+| Logistic Regression | 0.868    | 0.944 | 0.848     | 0.905  | 0.876 | 0.738 |
+| Decision Tree       | 1.000    | 1.000 | 1.000     | 1.000  | 1.000 | 1.000 |
+| KNN                 | 0.824    | 0.949 | 0.848     | 0.800  | 0.824 | 0.650 |
+| Naive Bayes         | 0.824    | 0.883 | 0.829     | 0.829  | 0.829 | 0.649 |
+| Random Forest       | 1.000    | 1.000 | 1.000     | 1.000  | 1.000 | 1.000 |
+| XGBoost             | 1.000    | 1.000 | 1.000     | 1.000  | 1.000 | 1.000 |
 
 Observations
 ML Model Name	Observation about model performance
